@@ -44,7 +44,7 @@ $(document).on("click", "#submit", function() {
     
 
 
-database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
 
     console.log(snapshot);
     var nameList = $('<li>');
