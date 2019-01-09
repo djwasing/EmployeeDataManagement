@@ -10,8 +10,11 @@ var config = {
 
 firebase.initializeApp(config);
 
+var database = firebase.database();
 
-$("#submit").on("click", function() {
+$(document).on("click", "#submit", function() {
+
+    console.log('ok');
 
     var newName = $('#employee-name').val().trim();
     var newRole = $('#employee-role').val().trim();
@@ -44,7 +47,18 @@ $("#submit").on("click", function() {
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
 
     console.log(snapshot);
+    var nameList = $('<li>');
+    nameList.text(snapshot.val().name);
+    $('#employee-name-card').append(nameList);
+    var roleList = $('<li>');
+    roleList.text(snapshot.val().role);
+    $('#employee-role-card').append(roleList);
+    var startDateList = $('<li>');
+    startDateList.text(snapshot.val().startDate);
+    $('#start-date-card').append(startDateList);
+    var monthlyRateList = $('<li>');
+    monthlyRateList.text(snapshot.val().monthlyRate);
+    $('#monthly-rate-card').append(monthlyRateList);
 
-    
 
 })
