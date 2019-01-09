@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+
+<body>
+
+    <div class="jumbotron text-center bg-info mr-2 ml-2">
+        <div class="container">
+            <h1 class="display-4">Employee Search</h1>
+        </div>
+    </div>
+
+
+    <div class="container border border-primary mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-12 bg-light" id="topArticles"> Current Employee</div>
+        </div>
+
+
+        <div class="row">
+                <div class="card col-md-2" id="employee-name-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Employee Name
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="employee-role-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Role
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="start-date-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Start Date
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="months-worked-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Months Worked
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="monthly-rate-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Monthly Rate
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="total-billed-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Total Billed
+                        </div>
+                </div>
+            <!-- <div class="col-md-2">
+                Role
+            </div>
+            <div class="col-md-2">
+                Months Worked
+            </div>
+            <div class="col-md-2">
+                Monthly Rate
+            </div>
+            <div class="col-md-2">
+                Total Billed Rate
+            </div> -->
+
+        </div>
+    </div>
+
+    <div class="container border border-primary" id="SearchParameters">
+        <div class="row">
+            <div class="col-md-12 bg-light pb-1">Add Employee</div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Employee Name</label>
+                <input type="search" class="form-control" id="employee-name" placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Employee Role</label>
+                <input type="search" class="form-control" id="employee-role" placeholder="CEO">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput3">Start Year</label>
+                <input type="search" class="form-control" id="employee-startYear" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput4">Monthly Rate</label>
+                <input type="search" class="form-control" id="employee-rate" placeholder="20000000">
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 mb-4">
+                    <div id="searchButton" class="btn bg-info">Search</div>
+                </div>
+                <div class="col-md-2">
+                    <div id="clearButton" class="btn bg-info">Clear Results</div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    $(“#submit”).on(“click”, function() {
+
+var employeeRef = ref().child(“employees/“);
+var newName = $(‘#employee-name’).val().trim();
+var newRole = $(‘#employee-role’).val().trim();
+var newDate = $(‘#employee-startYear’).val().trim();
+var newRate = parseInt($(‘#employee-rate’).val().trim());
+
+function newEmployeeData(employeeName, role, startDate, monthlyRate) {
+    database.employeeRef.push({
+
+        name: employeeName,
+        role: role,
+        startDate: startDate,
+        monthlyRate: monthlyRate,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+    });
+};
+
+newEmployeeData();
+
+$(“#employee-name”).val(“”);
+$(“#employee-role”).val(“”);
+$(“#employee-startYear”).val(“”);
+$(“#employee-rate”).val(“”);
+
+});
+
+</script>
+
+</body>
+
+</html>
