@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    
+    <!-- jQuery reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- local JS  -->
+    <script src="employeeApp.js"></script>
+    <!-- Bootstrap JS reference -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap and FontAwesome reference -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Firebase link -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center bg-info mr-2 ml-2">
+        <div class="container">
+            <h1 class="display-4">Employee Search</h1>
+        </div>
+    </div>
+
+
+    <div class="container border border-primary mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-12 bg-light" id="topArticles"> Current Employee</div>
+        </div>
+
+
+        <div class="row">
+                <div class="card col-md-2" id="employee-name-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Employee Name
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="employee-role-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Role
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="start-date-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Start Date
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="months-worked-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Months Worked
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="monthly-rate-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Monthly Rate
+                        </div>
+                </div>
+
+                <div class="card col-md-2" id="total-billed-card" style="width: 18rem;">
+                        <div class="card-header">
+                          Total Billed
+                        </div>
+                </div>
+            <!-- <div class="col-md-2">
+                Role
+            </div>
+            <div class="col-md-2">
+                Months Worked
+            </div>
+            <div class="col-md-2">
+                Monthly Rate
+            </div>
+            <div class="col-md-2">
+                Total Billed Rate
+            </div> -->
+
+        </div>
+    </div>
+
+    <div class="container border border-primary" id="SearchParameters">
+        <div class="row">
+            <div class="col-md-12 bg-light pb-1">Add Employee</div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Employee Name</label>
+                <input type="search" class="form-control" id="employee-name" placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Employee Role</label>
+                <input type="search" class="form-control" id="employee-role" placeholder="CEO">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput3">Start Year</label>
+                <input type="search" class="form-control" id="employee-startYear" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput4">Monthly Rate</label>
+                <input type="search" class="form-control" id="employee-rate" placeholder="20000000">
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 mb-4">
+                    <div id="searchButton" class="btn bg-info">Search</div>
+                </div>
+                <div class="col-md-2">
+                    <div id="clearButton" class="btn bg-info">Clear Results</div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+
+</html>
