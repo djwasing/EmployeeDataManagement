@@ -4,14 +4,13 @@
 
 $("#submit").on("click", function() {
 
-    var employeeRef = ref().child("employees/");
     var newName = $('#employee-name').val().trim();
     var newRole = $('#employee-role').val().trim();
     var newDate = $('#employee-startYear').val().trim();
     var newRate = parseInt($('#employee-rate').val().trim());
 
     function newEmployeeData(employeeName, role, startDate, monthlyRate) {
-        database.employeeRef.push({
+        database.ref().push({
 
             name: employeeName,
             role: role,
@@ -33,7 +32,7 @@ $("#submit").on("click", function() {
     
 
 
-database.ref().on("child_added", function (snapshot) {
+database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
 
     console.log(snapshot);
 
