@@ -63,6 +63,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     
     monthlyRateList.text(snapshot.val().monthlyRate);
     $('#monthly-rate-card').append(monthlyRateList);
+    
     var monthsWorkedList = $('<li>');    
     var monthFormat = "MM/DD/YYYY";
     var convertedDate = moment((snapshot.val().startDate),monthFormat);
