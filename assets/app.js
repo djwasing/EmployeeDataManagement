@@ -48,15 +48,19 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
 
     console.log(snapshot);
     var nameList = $('<li>');
+    var roleList = $('<li>');
+    var startDateList = $('<li>');
+    var monthlyRateList = $('<li>');
+    
     nameList.text(snapshot.val().name);
     $('#employee-name-card').append(nameList);
-    var roleList = $('<li>');
+    
     roleList.text(snapshot.val().role);
     $('#employee-role-card').append(roleList);
-    var startDateList = $('<li>');
+    
     startDateList.text(snapshot.val().startDate);
     $('#start-date-card').append(startDateList);
-    var monthlyRateList = $('<li>');
+    
     monthlyRateList.text(snapshot.val().monthlyRate);
     $('#monthly-rate-card').append(monthlyRateList);
 
