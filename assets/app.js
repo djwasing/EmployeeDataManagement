@@ -47,10 +47,10 @@ $(document).on("click", "#submit", function() {
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
 
     console.log(snapshot);
-    var nameList = $('<li>');
-    var roleList = $('<li>');
-    var startDateList = $('<li>');
-    var monthlyRateList = $('<li>');
+    var nameList = $('<div>');
+    var roleList = $('<div>');
+    var startDateList = $('<div>');
+    var monthlyRateList = $('<div>');
     
     nameList.text(snapshot.val().name);
     $('#employee-name-card').append(nameList);
