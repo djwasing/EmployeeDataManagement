@@ -1,5 +1,14 @@
 
+var config = {
+    apiKey: "AIzaSyBWA1IxJ5wXblDxXegz8IgpQmITesl4fio",
+    authDomain: "employee-data-management-3cdaf.firebaseapp.com",
+    databaseURL: "https://employee-data-management-3cdaf.firebaseio.com",
+    projectId: "employee-data-management-3cdaf",
+    storageBucket: "employee-data-management-3cdaf.appspot.com",
+    messagingSenderId: "266699550318"
+};
 
+firebase.initializeApp(config);
 
 
 $("#submit").on("click", function() {
