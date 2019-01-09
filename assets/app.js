@@ -59,6 +59,15 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     var monthlyRateList = $('<li>');
     monthlyRateList.text(snapshot.val().monthlyRate);
     $('#monthly-rate-card').append(monthlyRateList);
+    var monthsWorkedList = $('<li>');    
+    var monthFormat = "MM/DD/YYYY";
+    var convertedDate = moment((snapshot.val().startDate),monthFormat);
+    var monthsWorked = convertedDate.diff(moment(), "months");
+    monthsWorkedList.append(monthsWorked);
+    $("#months-worked-card").append(monthsWorkedList);
+    console.log("months worked " + monthsWorked);
+    console.log(convertedDate.diff(moment(), "months"));
+
 
 
 })
